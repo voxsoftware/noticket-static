@@ -1,1 +1,1 @@
-kawix.KModule.import(module.realpathResolve("./install.base"),{force: true})
+kawix.KModule.import(module.realPathResolve("./install.base"),{force: true})
