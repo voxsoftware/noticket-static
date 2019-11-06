@@ -1,3 +1,4 @@
+import 'https://kwx.kodhe.com/x/v/0.7.8/std/dist/stdlib'
 import * as async from '/virtual/@kawix/std/util/async'
 import Child from 'child_process'
 import Os from 'os'
