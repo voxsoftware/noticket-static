@@ -52,7 +52,7 @@ export class Program{
 
 			console.info(" > Installing noticket " + latest.version)
 			d = new async.Deferred<void>()
-			p = Child.spawn(path, [kwfile,"--password", "6f47a55b91ecab1672ce9879a16b3396", "gh+/voxsoftware/noticket-static/app/" + latest.file, noticket])
+			p = Child.spawn(path, [kwfile,"--password", "6f47a55b91ecab1672ce9879a16b3396", "gh+/voxsoftware/noticket-static/" + latest.file, noticket])
 			p.on("error", d.reject)
 			p.on("exit", d.resolve)
 			await d.promise
