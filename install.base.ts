@@ -1,5 +1,7 @@
 import 'https://kwx.kodhe.com/x/v/0.7.8/std/dist/stdlib'
+import 'https://kwx.kodhe.com/x/v/0.7.8/gix/dist/gix'
 import * as async from '/virtual/@kawix/std/util/async'
+import {Electron} from '/virtual/@kawix/gix/src/electron'
 import Child from 'child_process'
 import Os from 'os'
 import Path from 'path'
@@ -14,7 +16,7 @@ export class Program{
 			if(Os.platform() == "win32"){
 				path = Path.join(Os.homedir(),"Kawix","bin","kwcore")
 			}
-
+			
 			console.info(" > Installing AppDemon")
 			let d = new async.Deferred<void>()
 			let p = Child.spawn(path, ["gh+/voxsoftware/packages/appdemon/0.0.7.kwa","--install"],{
@@ -57,7 +59,12 @@ export class Program{
 			p.on("exit", d.resolve)
 			await d.promise
 
-			
+			let electron = new Electron("org.kodhe.noticket")
+			await electron.requestSingleInstanceLock()
+			await electron.electron.app.quit()
+
+			process.exit()
+
 
 		}catch(e){
 			console.error(" > Failed installing noticket: ", e)
