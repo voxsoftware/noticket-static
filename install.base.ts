@@ -41,7 +41,7 @@ export class Program{
 			let kwfile = "gh+/voxsoftware/packages/kwget/0.0.3.kwa"
 
 
-			console.info(" > Installing kowix 3.3.2")
+			console.info(" > Installing kowix 3.6.5")
 			d = new async.Deferred<void>()
 			p = Child.spawn(path, [kwfile, "gh+/voxsoftware/packages/kowix/3.6.5.kwa", kowix])
 			p.on("error", d.reject)
